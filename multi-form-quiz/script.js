@@ -429,10 +429,10 @@ const questions = [
     };
   
     const disableHoverEffectOnInputs = () => {
-      const radioButtons = document.querySelectorAll('.option input[type="radio"]');
+      const radioButtons = document.querySelectorAll('.option');
     
       radioButtons.forEach(radioButton => {
-        radioButton.style.pointerEvents = 'none';
+        radioButton.classList.replace("option", "option-no-hover");
       });
     };
   
