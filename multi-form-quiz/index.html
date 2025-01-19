@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi From Quiz</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="custom-container-fluid">
+    <!-- 
+      ========================================
+      Header Component
+      ========================================
+    -->
+    <header class="custom-container">
+      <h1>Welcome to Animal Quiz for 5th std.</h1>
+    </header>
+
+    <main class="custom-container">
+      <!-- 
+        ========================================
+        Section 1: Registration
+        ========================================
+      -->
+
+      <section class="registration custom-container-fluid" id="registration">
+        <form class="registration-form custom-container-fluid">
+          <input
+            type="text"
+            name="userFName"
+            id="userFName"
+            placeholder="Your first name"
+          />
+          <p class="form-input-error" id="userFNameError"></p>
+          <input
+            type="text"
+            name="userLName"
+            id="userLName"
+            placeholder="Your last name"
+          />
+          <p class="form-input-error" id="userLNameError"></p>
+          <input
+            type="text"
+            name="userEmail"
+            id="userEmail"
+            placeholder="Your email id"
+          />
+          <p class="form-input-error" id="userEmailError"></p>
+          <button class="btn" id="register-btn">Start Quiz</button>
+        </form>
+      </section>
+
+      <!-- 
+        ========================================
+        Section 2: Quiz
+        ========================================
+        -->
+
+      <section class="quiz custom-container-fluid" id="quiz">
+        <div class="quiz-wrapper custom-container-fluid">
+          <div class="status">
+            <p class="answered-questions">
+              Answered Questions:
+              <span id="questions-answered" class="questions-answered">0</span>
+              /
+              <span id="total-questions" class="total-questions">10</span>
+            </p>
+            <p class="timer" id="timer">Time Remaining: 00:00:00</p>
+          </div>
+          <form class="quiz-form custom-container-fluid">
+            <div class="quiz-container custom-container-fluid" id="quiz-container"></div>
+            <div class="submit-continer">
+              <button class="btn" id="previous-btn">Previous</button>
+              <button class="btn" id="submit-btn">Submit</button>
+              <button class="btn" id="play-again-btn">Play Again</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="custom-container-fluid">Created by Shaurya</footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

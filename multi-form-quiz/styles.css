@@ -1,0 +1,343 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  gap: 40px;
+  /* padding-top: 50px; */
+  /* padding-bottom: 0px; */
+  /* background-color: #333; */
+  border: 1px solid black;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  padding-top: 50px;
+}
+
+/* 
+========================================
+Common Components
+======================================== 
+*/
+
+p {
+}
+
+.btn {
+}
+
+/* 
+========================================
+Header Component
+======================================== 
+*/
+
+.custom-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 10px; */
+  flex-direction: column;
+  /* background-color: aquamarine; */
+}
+
+.custom-container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 5px; */
+  flex-direction: column;
+  /* background-color: burlywood; */
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+}
+
+/* 
+========================================
+Main Component
+*/
+
+main {
+}
+
+/* 
+========================================
+Section 1: Registration
+======================================== 
+*/
+
+.registration {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+}
+
+/* Form Styles */
+.registration-form {
+  gap: 15px;
+}
+
+/* Input Field Styles */
+.registration-form input[type="text"] {
+  background-color: #f4f7fc;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+  width: 100%;
+  max-width: 300px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Placeholder Text Style */
+.registration-form input[type="text"]::placeholder {
+  color: #b0b8c1;
+}
+
+/* Focus State for Input Fields */
+.registration-form input[type="text"]:focus {
+  border-color: #5c6bc0; /* Light blue border on focus */
+  outline: none;
+}
+
+/* Error Message Styles */
+.form-input-error {
+  color: #f44336;
+  font-size: 15px;
+  height: 15px;
+  margin: 0;
+  visibility: none;
+  text-align: center;
+}
+
+/* Button Styles */
+.registration-form .btn {
+  background-color: #5c6bc0;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.registration-form .btn:hover {
+  background-color: #4f5a99;
+  transform: translateY(-2px);
+}
+
+.registration-form .btn:active {
+  background-color: #3e4b82;
+  transform: translateY(0);
+}
+
+/* 
+========================================
+Section 2: Quiz
+======================================== 
+*/
+
+.quiz {
+  display: none;
+  max-width: 600px;
+  /* border: 1px solid black; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+
+.quiz-container {
+  align-items: start !important;
+}
+
+.quiz-item {
+  align-items: start !important;
+}
+
+.options-container {
+  align-items: start !important;
+}
+
+/* Status Section */
+.status {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  top: 5px;
+  position: sticky;
+  background-color: rgb(211 211 211);
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.status p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.status .timer {
+  /* font-size: 1rem; */
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Quiz Form Styles */
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Quiz Item Styles */
+.quiz-item {
+  background: rgba(255, 255, 255);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.quiz-item .question {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  /* border: 1px solid black; */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: rgb(187, 187, 187);
+}
+
+.option input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #5c6bc0;
+}
+
+/* Correct Answer Styles */
+.answer-container {
+  /* color: #388e3c; */
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.correct{
+  background-color: #93ff6f;
+}
+
+.wrong{
+  background-color: #ff6b6b;
+}
+
+/* Submit Button Styles */
+.submit-continer .btn {
+  background: #ff6b6b;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-continer .btn:hover {
+  background: #ff4757;
+  transform: translateY(-2px);
+}
+
+.submit-continer .btn:active {
+  transform: translateY(0);
+  background: #e84141;
+}
+
+#play-again-btn{
+  display: none;
+}
+
+/* 
+========================================
+Score Card Styling
+======================================== 
+*/
+
+.score-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* max-width: 500px; */
+  text-align: center;
+  margin: 20px auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+
+/* 
+========================================
+Footer
+======================================== 
+*/
+
+footer {
+  background-color: #f4f7fc; 
+  border-top: 2px solid #d1d5db; 
+  padding: 20px 10px;
+  text-align: bottom;
+  /* border: 1px solid black; */
+  /* font-size: 0.9rem; */
+  color: #333;
+  position: fixed;
+  bottom: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
