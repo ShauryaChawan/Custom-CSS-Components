@@ -61,7 +61,6 @@ const questions = [
   },
 ];
 
-
 const questionHtmlComponent = (data, index) => {
   const { question, options, values, ans } = data;
 
@@ -115,17 +114,15 @@ const answerContainer = (userAns, correctAns, correctOptionID) => {
 };
 
 const scoreCard = (correctAnswersCount, totalQuestions, userName) => {
- 
   let percentage = (correctAnswersCount / totalQuestions) * 100;
   let message = "";
-  
-  if(percentage >= 60){
-    message = "🥳 Well done "
-  }
-  else if (percentage < 60 && percentage >=35){
-    message = "🎉 Congratulations"
-  }else{
-    message = "🪦 Better luck next time"
+
+  if (percentage >= 60) {
+    message = "🥳 Well done ";
+  } else if (percentage < 60 && percentage >= 35) {
+    message = "🎉 Congratulations";
+  } else {
+    message = "🪦 Better luck next time";
   }
   return `
     <div class="score-card custom-container-fluid" id="score-card">
@@ -155,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Global variables
   // let countdownTime = 180;
-  let countdownTime = 179;
+  let countdownTime = 60;
   let totalQuestsionAnswered;
   let userFirstName, userLastName, userEmailID;
   let countDownTimer;
@@ -346,6 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (countdownTime === 0) {
         clearInterval(countDownTimer);
         timer.innerHTML = "Time's up!";
+        handleSubmit(new Event("submit"));
       }
 
       countdownTime--;
@@ -423,22 +421,27 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const disableOptionSelection = () => {
-    const radioButtons = document.querySelectorAll('.options-container input[type="radio"]');
-    radioButtons.forEach(button => {
+    const radioButtons = document.querySelectorAll(
+      '.options-container input[type="radio"]'
+    );
+    radioButtons.forEach((button) => {
       button.disabled = true;
     });
   };
 
   const disableHoverEffectOnInputs = () => {
-    const radioButtons = document.querySelectorAll('.option');
-  
-    radioButtons.forEach(radioButton => {
+    const radioButtons = document.querySelectorAll(".option");
+
+    radioButtons.forEach((radioButton) => {
       radioButton.classList.replace("option", "option-no-hover");
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    formPreviousBtn.style.display = "none";
+    formPlayAgainBtn.style.display = "block";
 
     stopCounterDown();
     disableOptionSelection();
@@ -455,19 +458,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectedAnswer = selectedOption.value;
 
         const correctAnswer = questionData.answer;
-        const correctInputOptionId = questionData.values.indexOf(`${correctAnswer}`) + 1;
-				const correctAndswerFromOptions = questionData.options[correctInputOptionId - 1];
-				console.log(correctAndswerFromOptions);
-          
-          if (selectedAnswer === correctAnswer) {
-            selectedOption.parentElement.classList.add("correct");
-            correctAnswersCount++;
-          } else {
-            selectedOption.parentElement.classList.add("wrong");
-            
-            const correctionOptionInputID = document.querySelector(
-              `input[name="animal${index + 1}"][id="${correctInputOptionId}"]`
-            );
+        const correctInputOptionId =
+          questionData.values.indexOf(`${correctAnswer}`) + 1;
+        const correctAndswerFromOptions =
+          questionData.options[correctInputOptionId - 1];
+        console.log(correctAndswerFromOptions);
+
+        if (selectedAnswer === correctAnswer) {
+          selectedOption.parentElement.classList.add("correct");
+          correctAnswersCount++;
+        } else {
+          selectedOption.parentElement.classList.add("wrong");
+
+          const correctionOptionInputID = document.querySelector(
+            `input[name="animal${index + 1}"][id="${correctInputOptionId}"]`
+          );
           correctionOptionInputID.parentElement.classList.add("correct");
         }
 
@@ -479,8 +484,12 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
     });
-    const userName = `${userFirstName} ${userLastName}`
-    const scoreCardDiv = scoreCard(correctAnswersCount, questions.length, userName);
+    const userName = `${userFirstName} ${userLastName}`;
+    const scoreCardDiv = scoreCard(
+      correctAnswersCount,
+      questions.length,
+      userName
+    );
     const quizWrapper = document.querySelector(".quiz-wrapper");
     // const statusDiv = document.querySelector(".status");
     quizWrapper.insertAdjacentHTML("afterbegin", scoreCardDiv);
@@ -488,10 +497,9 @@ document.addEventListener("DOMContentLoaded", () => {
     formSubmitBtn.style.display = "none";
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
     alert("Form Submitted Successfully !!");
-    
   };
 
   formSubmitBtn.addEventListener("click", (e) => {
@@ -501,8 +509,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "Are you sure you want to submit the form?"
       );
       if (confirmSubmit) {
-        formPreviousBtn.style.display="none";
-        formPlayAgainBtn.style.display="block";
         handleSubmit(e);
         // console.log("form submitted");
       }
@@ -511,9 +517,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  formPlayAgainBtn.addEventListener("click", () =>{
+  formPlayAgainBtn.addEventListener("click", () => {
     location.reload();
-  })
+  });
 
   /*
   ========================================
@@ -525,7 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
     registrationForm.style.display = "none";
     quizForm.style.display = "flex";
 
-    if(!isCounterRunning){
+    if (!isCounterRunning) {
       isCounterRunning = !isCounterRunning;
       startCountdown(countdownTime);
       trackAnsweredQuestions();
