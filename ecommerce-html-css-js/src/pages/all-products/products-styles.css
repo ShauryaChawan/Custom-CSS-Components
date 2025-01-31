@@ -1,0 +1,71 @@
+/* ========== All Products Page ========== */
+
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  gap: 25px;
+}
+
+.products-wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 25px;
+  place-items: center;
+  align-items: stretch;
+}
+
+@media screen and (min-width: 768px) {
+  .products-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+/* Pagination Container */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+/* Pagination Buttons */
+.pagination-container button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Added transition for smooth effects */
+}
+
+/* Hover Effect */
+.pagination-container button:hover:not(.disabled):not(.active) {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Active Button */
+.pagination-container button.active {
+  background-color: #0056b3; /* Active button color */
+}
+
+/* Disabled Button */
+.pagination-container button.disabled {
+  background-color: #ccc; /* Gray color for disabled buttons */
+  cursor: not-allowed;
+}
+
+/* Ellipsis Style */
+.pagination-container span {
+  padding: 10px 15px;
+}
+
+
+/* ########## End of All Products Page ########## */

@@ -1,0 +1,26 @@
+/* ========== Categories Page ========== */
+
+.categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  gap: 25px;
+}
+
+.categories-wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 25px;
+  place-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .categories-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+/* ########## End of Categories Page ########## */

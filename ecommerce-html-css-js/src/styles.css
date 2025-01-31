@@ -1,0 +1,105 @@
+/* ========== CSS Variables ========== */
+
+:root {
+  
+}
+
+/* ########## End of CSS Variables ########## */
+
+/* ========== CSS Starter ========== */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 0 20px 0 !important;
+}
+
+/* ########## End of CSS Starter ########## */
+
+/* ========== Card Component ========== */
+
+.card {
+  /* height: 100% !important; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.product-pricing-container{
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.card-body , .product-content-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.card-body {
+  gap: 20px;
+}
+
+.product-content-container{
+  height: 100%;
+  /* border: 1px solid black; */
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
+}
+
+/* ########## End of Card Components ########## */
+
+/* ========== Home Page ========== */
+
+.home {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  gap: 30px;
+}
+
+.button-container {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button-container .btn {
+  width: 60%;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .button-container {
+    flex-direction: row;
+  }
+
+  .button-container .btn {
+    width: fit-content;
+  }
+}
+
+/* ########## End of Home Page ########## */
+
